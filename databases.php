@@ -25,12 +25,16 @@
     <pre>
     <?php //  print(mysqli_fetch_row($result)); ?>
     </pre>
+    <pre>
     <?php
-     while ($row == mysqli_fetch_row($result)) {
-       echo "<pre>";
-       var_dump($row);
-       echo "</pre>";
-     }
+      
+      while ($row = mysqli_fetch_assoc($result)) {
+        echo '<h1 class="page-title">' . $row[1] . '</h1>';
+      }
+      mysqli_free_result($result);
+      
     ?>
+    </pre>
   </body>
 </html>
+<?php mysqli_close($connect); ?>
