@@ -23,6 +23,10 @@
 
   <body>
     <pre>
+    <?php print_r($_GET);?>
+    <?php print_r($_POST);?>
+    </pre>
+    <pre>
     <?php //  print(mysqli_fetch_row($result)); ?>
     </pre>
     <pre>
@@ -30,10 +34,12 @@
       while ($subject = mysqli_fetch_assoc($result)) {
       echo '
       <ul>
-        <li>'. $subject['menu_name'] .'</li>
+        <li>'. $subject['menu_name'] .' </li>
       </ul>' 
-      ;}
+
+    ;}
       ?>
+       <a href="databases_update.php?id=<?php echo $subject['id'];?>">Muuda</a>
     </pre>
   </body>
 </html>
