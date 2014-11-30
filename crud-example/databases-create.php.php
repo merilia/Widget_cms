@@ -12,7 +12,7 @@
   $query = "SELECT * FROM subjects;";
   $result = mysqli_query($connect, $query);
 
-  $row = mysqli_fetch_row($result);
+  $subject = mysqli_fetch_row($result);
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,13 +27,13 @@
     </pre>
     <pre>
     <?php
-      
-      while ($row = mysqli_fetch_assoc($result)) {
-        echo '<h1 class="page-title">' . $row[1] . '</h1>';
-      }
-      mysqli_free_result($result);
-      
-    ?>
+      while ($subject = mysqli_fetch_assoc($result)) {
+      echo '
+      <ul>
+        <li>'. $subject['menu_name'] .'</li>
+      </ul>' 
+      ;}
+      ?>
     </pre>
   </body>
 </html>
