@@ -33,35 +33,38 @@
    </head>
   <body>
 
-<?php
-if (isset($_POST['submit'])){
-echo $answeruser;
-}
-?>
-<form action="databases-create.php" method="post">
-<label for="menu-name" >Teema nimi:</label>
-<input id="menu-name" type="text" name="menu_name"></input>
-
-<label for="position" >Positsioon:</label>
-<select id="postition" name ="position">
-  <?php for ($i=1; $i < 16; $i++) {  ?>
-
-  <option value="<?php echo $i;?>"><?php echo $i;?></option>
-
-  <?php } ?>
-
-</select>
-<label for="visible" >Nähtavus:</label>
-<select id="visible" name="visible">
-
-<option value="1">Nähtav</option>
-<option value="0">Peidetud</option>
-
-</select>
-
-<input type="submit" name="submit" value="Saada"></input>
-
-</form>
+    <?php
+    if (isset($_POST['submit'])){
+    echo $answeruser;
+    }
+    ?>
+ <form action="databases-create.php" method="post">
+      <div class="form-field">
+        <label for="menu-name">Pealkiri</label>
+        <input id="menu-name" type="text" name="menu_name">
+      </div>
+ 
+      <div class="form-field">
+        <label for="position">Positsioon</label>
+        <select id="position" name="position">
+          <?php for ($i=0; $i < 16 ; $i++) { ?>
+            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+          <?php } ?>
+        </select>
+      </div>
+ 
+      <div class="form-field">
+        <label for="visible">Nähtavus</label>
+        <select id="visible" name="visible">
+          <option value="0">Peidetud</option>
+          <option value="1">Nähtav</option>
+        </select>
+      </div>
+ 
+      <div class="form-field">
+        <input type="submit" name="submit">
+      </div>
+    </form>
+<?php mysqli_close($connect); ?>
 </body>
 </html>
-<?php mysqli_close($connect);?>

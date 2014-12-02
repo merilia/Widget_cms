@@ -30,17 +30,15 @@
     <?php //  print(mysqli_fetch_row($result)); ?>
     </pre>
     <pre>
-    <?php
-      while ($subject = mysqli_fetch_assoc($result)) {
-      echo '
-      <ul>
-        <li>'. $subject['menu_name'] .' </li>
-      </ul>' 
 
-    ;}
-      ?>
-       <a href="databases_update.php?id=<?php echo $subject['id'];?>">Muuda</a>
+  <?php while($subject = mysqli_fetch_assoc($result)) { ?>
+    <h1 class="page-title"> <?php echo $subject['menu_name']; ?></h1>
+    <a href ="databases-update.php?id=<?php echo $subject['id']; ?>">Muuda</a>
+    
+  <?php } ?>
+  <?php mysqli_free_result($result); ?>
+  
     </pre>
+    <?php mysqli_close($connect); ?>
   </body>
 </html>
-<?php mysqli_close($connect); ?>

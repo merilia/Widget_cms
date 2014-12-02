@@ -25,7 +25,6 @@
     <pre>
     <?php //  print(mysqli_fetch_row($result)); ?>
     </pre>
-    <pre>
     <?php
       while ($subject = mysqli_fetch_assoc($result)) {
       echo '
@@ -34,7 +33,6 @@
       </ul>' 
       ;}
       ?>
-    </pre>
+    <?php mysqli_close($connect); ?>
   </body>
 </html>
-<?php mysqli_close($connect); ?>
