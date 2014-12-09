@@ -1,14 +1,5 @@
 <?php
-  $dbhost = 'localhost';
-  $dbuser = 'widget_cms';
-  $dbpass = 'parool';
-  $dbname = 'widget_corp';
-  $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-
-  if (mysqli_connect_errno()) {
-    die("Database connection failed: " . mysqli_connect_error() . " (" . mysqli_connect_errno() . ").");
-  }
-
+  require('components/config.php');
   if (isset($_POST['submit'])){
   $menu_name = $_POST['menu_name'];
   $position = $_POST['position'];
@@ -65,6 +56,7 @@
         <input type="submit" name="submit">
       </div>
     </form>
+    <li> <a href="index.php">Tagasi index lehele</a></li>
 <?php mysqli_close($connect); ?>
 </body>
 </html>
